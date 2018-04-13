@@ -42,10 +42,16 @@ the `example/` directory.
 ```python
 from flask import Flask, jsonify
 import time
+
+# Import ProfileManager
 from profiler.profile_manager import ProfileManager
 
 app = Flask(__name__)
-
+'''
+Bind you app object with ProfileManager and pass app object along with 'debug' mode to enable the
+result in reposne headers. If PROD or DEV is set you will not get stats in reponse to make sure
+even if you miss to comment this code in prod, it will not affect your application
+'''
 profiler = ProfileManager(app, 'debug')
 
 
@@ -53,6 +59,13 @@ profiler = ProfileManager(app, 'debug')
 def hello():
     print 'test start sleep'
 
+    '''
+    To profile any code snippet or call to external services , 
+    call the start with a unique key and after the code snippet call stop function. 
+    Also make sure to add call stop function [profiler.stop('<key>')]  with the same
+    key you started with, otherwise status will not be reflect.
+    '''
+    
     profiler.start('App 1')
     time.sleep(1)
     profiler.stop('App 1')
@@ -74,3 +87,4 @@ def hello():
 
 app.run(host="0.0.0.0",port=8080,debug=True)
 ```
+Note: Recommended not to enable this in production environment
