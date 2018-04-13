@@ -1,6 +1,8 @@
 # HTTP Server-Timing for Python Flask
-
-
+  * Installation
+  ```
+    pip install server-timing-profiler
+   ```
 This is a library including middleware for using
 [HTTP Server-Timing](https://www.w3.org/TR/server-timing) with Python. This header
 allows a server to send timing information from the backend, such as database
