@@ -30,4 +30,4 @@ def hello():
     print 'test stop sleep'
     return jsonify({'success':True})
 
-app.run(host="0.0.0.0",port=5055,debug=True)
+app.run(host="0.0.0.0",port=8080,debug=True)
