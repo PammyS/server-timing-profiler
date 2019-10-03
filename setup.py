@@ -18,7 +18,7 @@ setup(
     author_email='svicky9797@gmail.com',
     packages=find_packages(),
     install_requires=[
-        'Flask==0.10.1'
+        'Flask==1.0'
     ],
     keywords='HTTP Server-Timing for Python Flask',
     url='https://github.com/PammyS/server-timing-profiler',
